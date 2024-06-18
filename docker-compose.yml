@@ -6,34 +6,42 @@ services:
     container_name: kali-container
     build:
       context: ./kali
+      dockerfile: Dockerfile
     networks:
       range_net:
         ipv4_address: 10.10.10.10
     tty: true
     stdin_open: true
-    depends_on: 
-      - nmap
-      - target
+    volumes:
+      - ./testing:/root/testing
 
   nmap:
     image: nmap-scanner
     container_name: nmap-container
     build:
       context: ./nmap
+      dockerfile: Dockerfile
     networks:
       range_net:
         ipv4_address: 10.10.10.11
+    depends_on: 
+      - kali
 
   target:
     image: ubuntu-victim
     container_name: ubuntu-container
     build:
       context: ./target
+      dockerfile: Dockerfile
     networks:
       range_net:
         ipv4_address: 10.10.10.12
     volumes:
       - ./data:/home/john/data
+    depends_on: 
+      - kali
+    ports:
+      - "2222:22"
 
 networks:
   range_net:
