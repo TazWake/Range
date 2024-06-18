@@ -1,0 +1,6 @@
+# Ignore all hcl and exe files
+*.hcl
+*.exe
+
+# Ignore the directory named './tf/.terraform'
+./tf/.terraform/
