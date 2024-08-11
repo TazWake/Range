@@ -1,0 +1,217 @@
+networks:
+  workstation_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+          gateway: 172.20.0.1
+
+services:
+  workstation1:
+    build:
+      context: .
+      args:
+        USERNAME: researcher1
+        PASSWORD: password1
+    container_name: WORKSTATION1
+    hostname: WORKSTATION1.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.11
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation2:
+    build:
+      context: .
+      args:
+        USERNAME: researcher2
+        PASSWORD: password2
+    container_name: WORKSTATION2
+    hostname: WORKSTATION2.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.12
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation3:
+    build:
+      context: .
+      args:
+        USERNAME: researcher3
+        PASSWORD: password3
+    container_name: WORKSTATION3
+    hostname: WORKSTATION3.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.13
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation4:
+    build:
+      context: .
+      args:
+        USERNAME: researcher4
+        PASSWORD: password4
+    container_name: WORKSTATION4
+    hostname: WORKSTATION4.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.14
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation5:
+    build:
+      context: .
+      args:
+        USERNAME: researcher5
+        PASSWORD: password5
+    container_name: WORKSTATION5
+    hostname: WORKSTATION5.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.15
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation6:
+    build:
+      context: .
+      args:
+        USERNAME: researcher6
+        PASSWORD: password6
+    container_name: WORKSTATION6
+    hostname: WORKSTATION6.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.16
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation7:
+    build:
+      context: .
+      args:
+        USERNAME: researcher7
+        PASSWORD: password7
+    container_name: WORKSTATION7
+    hostname: WORKSTATION7.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.17
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation8:
+    build:
+      context: .
+      args:
+        USERNAME: researcher8
+        PASSWORD: password8
+    container_name: WORKSTATION8
+    hostname: WORKSTATION8.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.18
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation9:
+    build:
+      context: .
+      args:
+        USERNAME: researcher9
+        PASSWORD: password9
+    container_name: WORKSTATION9
+    hostname: WORKSTATION9.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.19
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation10:
+    build:
+      context: .
+      args:
+        USERNAME: researcher10
+        PASSWORD: password10
+    container_name: WORKSTATION10
+    hostname: WORKSTATION10.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.20
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation11:
+    build:
+      context: .
+      args:
+        USERNAME: researcher11
+        PASSWORD: password11
+    container_name: WORKSTATION11
+    hostname: WORKSTATION11.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.21
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  workstation12:
+    build:
+      context: .
+      args:
+        USERNAME: researcher12
+        PASSWORD: password12
+    container_name: WORKSTATION12
+    hostname: WORKSTATION12.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.22
+    environment:
+      - BEATS_ELK_HOST=elk.corpnet:9200
+    tty: true
+    stdin_open: true
+
+  elk:
+    image: elkimage
+    container_name: elk
+    hostname: elk.corpnet
+    networks:
+      workstation_network:
+        ipv4_address: 172.20.0.100
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+    environment:
+      - ELASTICSEARCH_USERNAME=investigator
+      - ELASTICSEARCH_PASSWORD=forensics
+    tty: true
+    stdin_open: true
