@@ -1,5 +1,6 @@
 FROM sebp/elk:761
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+RUN mkdir -p /opt/config
+COPY entrypoint.sh /opt/config/entrypoint.sh
+RUN chmod +x /opt/config/entrypoint.sh
 EXPOSE 5601
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/opt/config/entrypoint.sh"]
