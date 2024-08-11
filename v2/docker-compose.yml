@@ -22,6 +22,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation2:
     build:
@@ -38,6 +44,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true 
 
   workstation3:
     build:
@@ -54,7 +66,13 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
-
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
+    
   workstation4:
     build:
       context: .
@@ -70,6 +88,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation5:
     build:
@@ -86,6 +110,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation6:
     build:
@@ -102,6 +132,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation7:
     build:
@@ -118,6 +154,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation8:
     build:
@@ -134,6 +176,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation9:
     build:
@@ -150,6 +198,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation10:
     build:
@@ -166,6 +220,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation11:
     build:
@@ -182,6 +242,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   workstation12:
     build:
@@ -198,6 +264,12 @@ services:
       - BEATS_ELK_HOST=elk.corpnet:9200
     tty: true
     stdin_open: true
+    cap_add:
+      - AUDIT_CONTROL
+      - AUDIT_READ
+      - AUDIT_WRITE
+      - SYS_ADMIN
+    privileged: true
 
   elk:
     image: elkimage

@@ -2,7 +2,9 @@ filebeat.inputs:
 - type: log
   enabled: true
   paths:
-    - /var/log/*.log
+    - /var/log/audit/*
+    - /var/log/syslog
+    - /var/log/journal/*
 
-output.logstash:
-  hosts: ["elk.corpnet:5044"]
+output.elasticsearch:
+  hosts: ["http://elk.corpnet:9200"]
